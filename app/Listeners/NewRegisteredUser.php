@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\NewUserRegister;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Mail;
 
 class NewRegisteredUser
 {
@@ -28,9 +29,10 @@ class NewRegisteredUser
     {
         $data = [
             'name'=>$event->getName(),
-            'token'=>$event->getToken()
+            'token'=>$event->getToken(),
+            'email'=>$event->getEmail()
         ];
-        Mail::send(['html'=>'mail.newusersignup'],['data'=>$data], function ($message) use ($event){
+        Mail::send(['html'=>'mail.konfirmation'],['data'=>$data], function ($message) use ($event){
             $message->from(env('MAIL_USERNAME'),'SIWALAN');
             $message->to($event->getEmail())->subject('SIWALAN - Konfirmasi pendaftaran');
         });

@@ -1,8 +1,8 @@
 <nav class="left-menu" left-menu>
     <div class="logo-container">
         <a href="index.html" class="logo">
-            <img src="{{url('public/img/logo.png')}}" alt="Clean UI Admin Template" />
-            <img class="logo-inverse" src="{{url('public/img/logo-inverse.png')}}" alt="Clean UI Admin Template" />
+            <img src="{{url('public/img/logodepnaker.png')}}" alt="Clean UI Admin Template" />
+            <img class="logo-inverse" src="{{url('public/img/logodepnaker.png')}}" alt="Clean UI Admin Template" />
         </a>
     </div>
     <div class="left-menu-inner scroll-pane">

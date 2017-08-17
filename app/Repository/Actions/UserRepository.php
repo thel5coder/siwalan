@@ -12,12 +12,12 @@ class UserRepository implements IUserRepository
     public function create($input)
     {
         $user = new User();
-        $user->name = $input['name'];
+        $user->nama = $input['name'];
         $user->email = $input['email'];
         $user->password = $input['password'];
         $user->user_level = $input['userLevel'];
         if(isset($input['token']) || $input['token'] !=''){
-            $user->token = $input['token'];
+            $user->activation_token = $input['token'];
         }
 
         return $user->save();
@@ -26,7 +26,7 @@ class UserRepository implements IUserRepository
     public function update($input)
     {
         $user = User::find($input['id']);
-        $user->name = $input['name'];
+        $user->nama = $input['name'];
         $user->email = $input['email'];
         $user->user_level = $input['userLevel'];
 
@@ -71,12 +71,20 @@ class UserRepository implements IUserRepository
         return ($result==1);
     }
 
-    public function setActiveUser($email, $token)
+    public function changeActiveStatus($id,$status)
+    {
+        $user = User::find($id);
+        $user->is_active = $status;
+
+        return $user->save();
+    }
+
+    public function userConfirmation($email, $token)
     {
         return User::where('email','=',$email)
-            ->where('token','=',$token)
-            ->update([
-                'is_active'=>1
-            ]);
+            ->where('activation_token','=',$token)
+            ->update(['is_active'=>'1']);
     }
+
+
 }

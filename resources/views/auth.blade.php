@@ -16,5 +16,6 @@
 
 <div class="main-backdrop"><!-- --></div>
 
+@yield('customscript')
 </body>
 </html>

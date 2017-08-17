@@ -3,7 +3,7 @@
 @stop
 @section('title','Registrasi')
 @section('content')
-    <div class="page-content-inner" style="background-image: url(public/img/temp/login/2.jpg)">
+    <div class="page-content-inner" style="background-image: url({{asset('public/img/temp/login/2.jpg')}})">
 
         <!-- Register Page -->
         <div class="single-page-block-header">
@@ -11,7 +11,7 @@
                 <div class="col-lg-4">
                     <div class="logo">
                         <a href="javascript: history.back();">
-                            <img src="{{url('public/img/logo-inverse.png')}}" alt="Clean UI Admin Template" />
+                            <img src="{{url('public/img/logodepnaker.png')}}" alt="Clean UI Admin Template" />
                         </a>
                     </div>
                 </div>
@@ -26,31 +26,23 @@
                         DAFTAR SEKARANG
                     </h3>
                     <br />
-                    <form id="form-validation" name="form-validation" method="POST">
+                    <form id="formRegistration">
                         <div class="form-group">
-                            <div class="form-input-icon form-input-icon-right">
-
-                            </div>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Nama perusahaan" required>
                         </div>
                         <div class="form-group">
-                            <input id="validation-password"
-                                   class="form-control password"
-                                   name="validation[password]"
-                                   type="password" data-validation="[L>=6]"
-                                   data-validation-message="$ must be at least 6 characters"
-                                   placeholder="Password">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email perusahaan" required>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Repeat Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                         </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="konfirmPassword" name="konfirmPassword" placeholder="Repeat Password" required>
+                        </div>
+                        <input type="hidden" value="{{csrf_token()}}" id="_token" name="_token"/>
+                        <input type="hidden" value="perusahaan" name="userLevel" id="userLevel"/>
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary width-150">Sign Up</button>
-                            <div class="checkbox margin-left-10">
-                                <label>
-                                    <input type="checkbox" name="example6" checked>
-                                    Mail Subscription
-                                </label>
-                            </div>
+                            <input type="submit" class="btn btn-primary width-150" value="Daftar"/>
                         </div>
                     </form>
                 </div>
@@ -61,70 +53,110 @@
 
     </div>
 
-    <!-- Page Scripts -->
-    <script>
-
-        $(function () {
-
-            // Form Validation
-            $('#form-validation').validate({
-                submit: {
-                    settings: {
-                        inputContainer: '.form-group',
-                        errorListClass: 'form-control-error',
-                        errorClass: 'has-danger'
-                    }
-                }
-            });
-
-            // Add class to body for change layout settings
-            $('body').addClass('single-page');
-
-            // Set Background Image for Form Block
-            function setImage() {
-                var imgUrl = $('.page-content-inner').css('background-image');
-
-                $('.blur-placeholder').css('background-image', imgUrl);
-            };
-
-            function changeImgPositon() {
-                var width = $(window).width(),
-                        height = $(window).height(),
-                        left = - (width - $('.single-page-block-inner').outerWidth()) / 2,
-                        top = - (height - $('.single-page-block-inner').outerHeight()) / 2;
-
-
-                $('.blur-placeholder').css({
-                    width: width,
-                    height: height,
-                    left: left,
-                    top: top
-                });
-            };
-
-            setImage();
-            changeImgPositon();
-
-            $(window).on('resize', function(){
-                changeImgPositon();
-            });
-
-            // Mouse Move 3d Effect
-            var rotation = function(e){
-                var perX = (e.clientX/$(window).width())-0.5;
-                var perY = (e.clientY/$(window).height())-0.5;
-                TweenMax.to(".effect-3d-element", 0.4, { rotationY:15*perX, rotationX:15*perY,  ease:Linear.easeNone, transformPerspective:1000, transformOrigin:"center" })
-            };
-
-            if (!cleanUI.hasTouch) {
-                $('body').mousemove(rotation);
-            }
-
-        });
-
-    </script>
-    <!-- End Page Scripts -->
 @stop
-@section('customescript')
+@section('customscript')
+    <script src="{{asset('public/vendors/jquery-validation/js/jquery.validate.js')}}"></script>
+<script>
+    var token ="{{csrf_token()}}";
+    var userLevel = "perusahaan";
+    $(document).ready(function () {
+        $('#formRegistration').validate({
+            errorElement: 'span', //default input error message container
+            errorClass: 'help-block', // default input error message class
+            focusInvalid: false, // do not focus the last invalid input
+            ignore: "",
+            rules: {
+                name: {
+                    required: true
+                },
+                email:{
+                    email:true,
+                    required:true
+                },
+                password:{
+                    min:6,
+                    required:true
+                },
+                konfirmPassword:{
+                    required:true,
+                    equalTo:'#password'
+                }
+            },
 
+            messages: {
+                name: {
+                    required: "Nama perusahaan harus di isi"
+                },
+                email:{
+                    email:"Email tidak valid",
+                    required:"Email harus di isi"
+                },
+                password:{
+                    min:"Password minimal 6 karakter",
+                    required:"Password harus di isi"
+                },
+                konfirmPassword:{
+                    required:"Konfirmasi password harus di isi",
+                    equalTo:"Konfirmasi password tidak sama"
+                }
+            },
+
+            invalidHandler: function (event, validator) { //display error alert on form submit
+
+            },
+
+            highlight: function (element) { // hightlight error inputs
+                $(element)
+                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+            },
+
+            success: function (label) {
+                label.closest('.form-group').removeClass('has-error');
+                label.remove();
+            },
+
+            errorPlacement: function (error, element) {
+                if (element.attr("name") == "tnc") { // insert checkbox errors after the container
+                    error.insertAfter($('#register_tnc_error'));
+                } else if (element.closest('.input-icon').size() === 1) {
+                    error.insertAfter(element.closest('.input-icon'));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+
+            submitHandler: function (form) {
+                runWaitMe('body', 'roundBounce', 'Menyimpan Data...');
+
+                $.ajax({
+                    url: "<?= route('userRegisterProcess')?>",
+                    method: "POST",
+                    data: {
+                        _token:$('#_token').val(),
+                        name: $('#name').val(),
+                        email:$('#email').val(),
+                        password:$('#password').val(),
+                        userLevel:$('#userLevel').val()
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrow) {
+                        $('body').waitMe('hide');
+                        notificationMessage(errorThrow, 'error');
+                    },
+                    success: function (s) {
+                        if (s.isSuccess) {
+                            //location.reload();
+                            window.location = "{{route('userAuth')}}";
+                        } else {
+                            $('body').waitMe('hide');
+                            var errorMessagesCount = s.message.length;
+                            for (var i = 0; i < errorMessagesCount; i++) {
+                                notificationMessage(s.message[i], 'error');
+                            }
+                        }
+                    }
+                })
+            }
+        });
+    });
+</script>
 @stop

@@ -38,4 +38,8 @@
 
 <!-- Clean UI Styles -->
 <link rel="stylesheet" type="text/css" href="{{url('public/css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('public/css/jquery.bootgrid.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('public/css/sweetalert2.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('public/css/toastr.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url('public/css/waitMe.css')}}">
 @yield('customestyle')

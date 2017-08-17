@@ -8,7 +8,7 @@
 <script src="{{url('public/vendors/spin.js/spin.js')}}"></script>
 <script src="{{url('public/vendors/ladda/dist/ladda.min.js')}}"></script>
 <script src="{{url('public/vendors/select2/dist/js/select2.full.min.js')}}"></script>
-<script src="{{url('public/vendors/html5-form-validation/dist/jquery.validation.min.js')}}"></script>
+{{--<script src="{{url('public/vendors/html5-form-validation/dist/jquery.validation.min.js')}}"></script>--}}
 <script src="{{url('public/vendors/jquery-typeahead/dist/jquery.typeahead.min.js')}}"></script>
 <script src="{{url('public/vendors/jquery-mask-plugin/dist/jquery.mask.min.js')}}"></script>
 <script src="{{url('public/vendors/autosize/dist/autosize.min.js')}}"></script>
@@ -33,6 +33,7 @@
 <script src="{{url('public/vendors/c3/c3.min.js')}}"></script>
 <script src="{{url('public/vendors/chartist/dist/chartist.min.js')}}"></script>
 <script src="{{url('public/vendors/peity/jquery.peity.min.js')}}"></script>
+
 <!-- v1.0.1 -->
 <script src="{{url('public/vendors/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js')}}"></script>
 <!-- v1.1.1 -->
@@ -51,4 +52,8 @@
 <!-- Clean UI Scripts -->
 <script src="{{url('public/js/common.js')}}"></script>
 <script src="{{url('public/js/demo.temp.js')}}"></script>
-@yield('customscript')
+<script src="{{url('public/js/jquery.bootgrid.js')}}"></script>
+<script src="{{url('public/js/toastr.js')}}"></script>
+<script src="{{url('public/js/sweetalert2.js')}}"></script>
+<script src="{{url('public/js/waitMe.js')}}"></script>
+<script src="{{url('public/js/base.js')}}"></script>

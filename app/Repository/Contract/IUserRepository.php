@@ -18,5 +18,7 @@ interface IUserRepository extends IBaseRepository
 
     public function checkUserIsActive($email);
 
-    public function setActiveUser($email, $token);
+    public function changeActiveStatus($id,$status);
+
+    public function userConfirmation($email,$token);
 }
