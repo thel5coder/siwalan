@@ -30,7 +30,7 @@ class NewRegisteredUser
         $data = [
             'name'=>$event->getName(),
             'token'=>$event->getToken(),
-            'email'=>$event->getEmail()
+            'email'=>base64_encode($event->getEmail())
         ];
         Mail::send(['html'=>'mail.konfirmation'],['data'=>$data], function ($message) use ($event){
             $message->from(env('MAIL_USERNAME'),'SIWALAN');

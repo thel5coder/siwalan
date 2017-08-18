@@ -144,8 +144,11 @@
                     },
                     success: function (s) {
                         if (s.isSuccess) {
-                            //location.reload();
-                            window.location = "{{route('userAuth')}}";
+                            $('body').waitMe('hide');
+                            notificationMessage('Cek email anda, untuk melakukan aktifasi akun','info');
+                            setTimeout(function () {
+                                window.location = "{{route('userAuth')}}";
+                            },5000);
                         } else {
                             $('body').waitMe('hide');
                             var errorMessagesCount = s.message.length;

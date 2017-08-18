@@ -14,6 +14,8 @@ class RepositoryAppProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind('App\\Repository\\Contract\\IUserRepository', 'App\\Repository\\Actions\UserRepository');
+        $this->app->bind('App\\Repository\\Contract\\IMasterWaktuKerjaRepository', 'App\\Repository\\Actions\MasterWaktuKerjaRepository');
+        $this->app->bind('App\\Repository\\Contract\\IKetenagaKerjaanUmumRepository', 'App\\Repository\\Actions\KetenagaKerjaanUmumRepository');
     }
 
     /**

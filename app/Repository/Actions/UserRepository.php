@@ -16,7 +16,7 @@ class UserRepository implements IUserRepository
         $user->email = $input['email'];
         $user->password = $input['password'];
         $user->user_level = $input['userLevel'];
-        if(isset($input['token']) || $input['token'] !=''){
+        if (isset($input['token']) || $input['token'] != '') {
             $user->activation_token = $input['token'];
         }
 
@@ -26,9 +26,31 @@ class UserRepository implements IUserRepository
     public function update($input)
     {
         $user = User::find($input['id']);
-        $user->nama = $input['name'];
-        $user->email = $input['email'];
-        $user->user_level = $input['userLevel'];
+        $user->nama = $input['namPerusahaan'];
+        $user->alamat_perusahaan = $input['alamatPerusahaan'];
+        $user->no_telepon = $input['noTelepon'];
+        $user->kelurahan = $input['kelurahan'];
+        $user->kabupaten = $input['kabupaten'];
+        $user->kode_pos = $input['kodePos'];
+        $user->jenis_usaha = $input['jenisUsaha'];
+        $user->produk_akhir = $input['produkAkhir'];
+        $user->nama_pemilik = $input['namaPemilik'];
+        $user->alamat_pemilik = $input['alamatPemilik'];
+        $user->nama_pengelolah = $input['namaPengelolah'];
+        $user->alamat_pengelolah = $input['alamatPengelolah'];
+        $user->tanggal_pendirian = $input['tglPendirian'];
+        $user->nomor_akta_pendirian = $input['nomorAktaPendirian'];
+        if (isset($input['tglPerpindahanPerusahaan'])) {
+            $user->tgl_perpindahan_perusahaan = $input['tglPerpindahanPerusahaan'];
+        }
+        if(isset($input['alamatLama'])){
+            $user->alamat_lama = $input['alamatLama'];
+        }
+        $user->status_perusahaan = $input['statusPerusahaan'];
+        $user->jumlah_cabang_di_indonesia = $input['jumlahCabangIndonesia'];
+        $user->jumlah_cabang_luar_indonesia = $input['jumlahCabangLuarIndonesia'];
+        $user->status_pemilikan = $input['statusPemilikan'];
+        $user->status_permodalan = $input['statusPermodalan'];
 
         return $user->save();
     }
@@ -55,23 +77,23 @@ class UserRepository implements IUserRepository
 
     public function checkEmail($email, $id)
     {
-        if($id ==''){
-            $result = User::where('email','=',$email)->count();
-        }else{
-            $result = User::where('email','=',$email)->where('id','<>',$id)->count();
+        if ($id == '') {
+            $result = User::where('email', '=', $email)->count();
+        } else {
+            $result = User::where('email', '=', $email)->where('id', '<>', $id)->count();
         }
 
-        return ($result>0);
+        return ($result > 0);
     }
 
     public function checkUserIsActive($email)
     {
-        $result = User::where('email','=',$email)->value('is_active');
+        $result = User::where('email', '=', $email)->value('is_active');
 
-        return ($result==1);
+        return ($result == 1);
     }
 
-    public function changeActiveStatus($id,$status)
+    public function changeActiveStatus($id, $status)
     {
         $user = User::find($id);
         $user->is_active = $status;
@@ -81,9 +103,9 @@ class UserRepository implements IUserRepository
 
     public function userConfirmation($email, $token)
     {
-        return User::where('email','=',$email)
-            ->where('activation_token','=',$token)
-            ->update(['is_active'=>'1']);
+        return User::where('email', '=', $email)
+            ->where('activation_token', '=', $token)
+            ->update(['is_active' => '1']);
     }
 
 

@@ -15,28 +15,11 @@
                 </a>
             </li>
             <li class="left-menu-list-separator"><!-- --></li>
-            <li class="left-menu-list-submenu">
-                <a class="left-menu-link" href="javascript: void(0);">
+            <li>
+                <a class="left-menu-link" href="{{route('dataPerusahaan')}}">
                     <i class="left-menu-link-icon fa fa-building"><!-- --></i>
                     Perusahaan
                 </a>
-                <ul class="left-menu-list list-unstyled">
-                    <li>
-                        <a class="left-menu-link" href="pages-login-alpha.html">
-                            Perusahaan
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="pages-login-beta.html">
-                            Pemilik
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="pages-login-omega.html">
-                            Pengurus
-                        </a>
-                    </li>
-                </ul>
             </li>
             <li class="left-menu-list-submenu">
                 <a class="left-menu-link" href="javascript: void(0);">
@@ -45,27 +28,27 @@
                 </a>
                 <ul class="left-menu-list list-unstyled">
                     <li>
-                        <a class="left-menu-link" href="ecommerce-dashboard.html">
+                        <a class="left-menu-link" href="{{route('ketenagaKerjaanUmum')}}">
                             Umum
                         </a>
                     </li>
                     <li>
-                        <a class="left-menu-link" href="ecommerce-products-catalog.html">
+                        <a class="left-menu-link" href="#">
                             Alat Perusahaan
                         </a>
                     </li>
                     <li>
-                        <a class="left-menu-link" href="ecommerce-product-details.html">
+                        <a class="left-menu-link" href="{{route('ketenagaKerjaanWaktuKerja')}}">
                             Waktu Kerja
                         </a>
                     </li>
                     <li>
-                        <a class="left-menu-link" href="ecommerce-product-edit.html">
+                        <a class="left-menu-link" href="{{route('ketenagaKerjaanPengupahan')}}">
                             Pengupahan Kerja
                         </a>
                     </li>
                     <li>
-                        <a class="left-menu-link" href="ecommerce-products-list.html">
+                        <a class="left-menu-link" href="#">
                             Fasilitas Perusahaan
                         </a>
                     </li>
@@ -132,7 +115,7 @@
                 </a>
             </li>
             <li>
-                <a class="left-menu-link" href="components-mail-templates.html">
+                <a class="left-menu-link" href="{{route('cetakanLaporan',['id'=>8])}}">
                     <i class="left-menu-link-icon icmn-printer"><!-- --></i>
                     Cetak
                 </a>

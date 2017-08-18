@@ -27,7 +27,7 @@ class UserService extends BaseService
 
     public function create($input){
         $response = new ServiceResponseDto();
-        $token = base64_encode(uniqid());
+        $token = md5(uniqid());
 
         $param = [
             'name'=>$input['name'],
@@ -59,27 +59,9 @@ class UserService extends BaseService
     public function update($input){
         $response = new ServiceResponseDto();
 
-        if($input['password'] =='' || !isset($input['password'])){
-            $param = [
-                'id'=>$input['id'],
-                'name'=>$input['name'],
-                'userName'=>$input['userName'],
-                'userLevel'=>$input['userLevel'],
-            ];
-        }else{
-            $param = [
-                'id'=>$input['id'],
-                'name'=>$input['name'],
-                'userName'=>$input['userName'],
-                'userLevel'=>$input['userLevel'],
-                'password'=>$input['password']
-            ];
-        }
 
-
-
-        if(!$this->userRepository->update($param)){
-            $message = ['Gagal menambahkan user'];
+        if(!$this->userRepository->update($input)){
+            $message = ['Gagal menyimpan'];
             $response->addErrorMessage($message);
         }
 
@@ -137,7 +119,7 @@ class UserService extends BaseService
         if($isEmailExist){
             $isUserActive = $this->isUserNameActive($input['email'])->getResult();
             if($isUserActive){
-                if($input['remember']==1){
+                if(isset($input['remember'])){
                     if(!Auth::attempt(['email'=>$input['email'],'password'=>$input['password']],true)){
                         $message = ['User dan Password tidak valid!'];
                         $response->addErrorMessage($message);
@@ -155,6 +137,23 @@ class UserService extends BaseService
         }else{
             $message = ['Email / user tidak di temukan!'];
             $response->addErrorMessage($message);
+        }
+
+        return $response;
+    }
+
+    public function activationUser($email,$token){
+        $response = new ServiceResponseDto();
+        $userEmail = base64_decode($email);
+        $isUserActive = $this->isUserNameActive($userEmail)->getResult();
+        if($isUserActive){
+            $message = ['User sudah di aktivasi'];
+            $response->addErrorMessage($message);
+        }else{
+            if(!$this->userRepository->userConfirmation($userEmail,$token)){
+                $message = ['Gagal mengaktifasi user'];
+                $response->addErrorMessage($message);
+            }
         }
 
         return $response;

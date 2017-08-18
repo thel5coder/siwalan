@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 
 class AuthController extends Controller
@@ -23,7 +24,7 @@ class AuthController extends Controller
     }
 
     public function authProcess(){
-        $response = $this->userService->create(Input::all());
+        $response = $this->userService->authProcess(Input::all());
 
         return $this->getJsonResponse($response);
     }
@@ -38,7 +39,20 @@ class AuthController extends Controller
         return $this->getJsonResponse($response);
     }
 
-    public function activateUser($email,$token){
+    public function userConfirmation($email,$token){
+        return view('auth.konfirm')
+            ->with('email',$email)
+            ->with('token',$token);
+    }
 
+    public function userConfirmationProcess(){
+        $response = $this->userService->activationUser(Input::get('email'),Input::get('token'));
+
+        return $this->getJsonResponse($response);
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->guest('user/auth');
     }
 }

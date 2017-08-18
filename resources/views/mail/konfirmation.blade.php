@@ -32,7 +32,7 @@
                                     <table width="960" border="0" cellpadding="0" cellspacing="0" align="center" style="margin-top: 40px;">
                                         <tr>
                                             <td width="960" style="padding-bottom: 40px; border-bottom: 1px solid #e7eeee;">
-                                                <center><img src="{{asset('public/img/logodepnaker.png')}}" alt="RocketWay" border="0"></center>
+                                                <center><img src="public/img/logodepnaker.png" alt="RocketWay" border="0"></center>
                                             </td>
                                         </tr>
                                         <tr>
