@@ -8,7 +8,7 @@
         $('#tglPengesahanKkbPk').hide();
 
         $('#pk').change(function () {
-            if($(this).prop('checked')){
+            if($(this).prop('checked') || $('#kkb').prop('checked')){
                 $('#tglPengesahanKkbPk').show();
                 pk =1;
             }else{
@@ -18,7 +18,7 @@
         });
 
         $('#kkb').change(function () {
-            if($(this).prop('checked')){
+            if($(this).prop('checked') || $('#pk').prop('checked')){
                 $('#tglPengesahanKkbPk').show();
                 kkb = 1;
             }else{
