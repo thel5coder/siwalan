@@ -3,18 +3,12 @@
 @stop
 @section('title','Registrasi')
 @section('content')
-    <div class="page-content-inner" style="background-image: url({{asset('public/img/temp/login/2.jpg')}})">
+    <div class="page-content-inner" >
 
         <!-- Register Page -->
         <div class="single-page-block-header">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="logo">
-                        <a href="javascript: history.back();">
-                            <img src="{{url('public/img/logodepnaker.png')}}" alt="Clean UI Admin Template" />
-                        </a>
-                    </div>
-                </div>
+
             </div>
         </div>
         <div class="single-page-block">
@@ -23,7 +17,7 @@
                 <div class="single-page-block-form">
                     <h3 class="text-center">
                         <i class="icmn-user-tie margin-right-10"></i>
-                        DAFTAR SEKARANG
+                        Wajib Lapor
                     </h3>
                     <br />
                     <form id="formRegistration">

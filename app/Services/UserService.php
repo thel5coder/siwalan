@@ -158,4 +158,41 @@ class UserService extends BaseService
 
         return $response;
     }
+
+    public function updateDataUmumPerusahaan($param){
+        $response = new ServiceResponseDto();
+        $perusahaanId = auth()->user()->id;
+
+        if(!$this->userRepository->updateDataUmumPerusahaan($perusahaanId,$param)){
+            $message = ['Gagal menyimpan data'];
+            $response->addErrorMessage($message);
+        }
+
+        return $response;
+    }
+
+    public function updateDataLegalPerusahaan($param){
+        $response = new ServiceResponseDto();
+        $perusahaanId = auth()->user()->id;
+
+        if(!$this->userRepository->updateDataLegalitasPerusahaan($perusahaanId,$param)){
+            $message = ['Gagal menyimpan data'];
+            $response->addErrorMessage($message);
+        }
+
+        return $response;
+    }
+
+
+    public function updateDataPengelolah($param){
+        $response = new ServiceResponseDto();
+        $perusahaanId = auth()->user()->id;
+
+        if(!$this->userRepository->updateDataPengelolah($perusahaanId,$param)){
+            $message = ['Gagal menyimpan data'];
+            $response->addErrorMessage($message);
+        }
+
+        return $response;
+    }
 }

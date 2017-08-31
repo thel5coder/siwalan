@@ -27,41 +27,41 @@ function runWaitMe(renderEffect, effect, text) {
 }
 
 function popUpConfirmation(url,tableId,message,msgProcess) {
-    BootstrapDialog.show({
-        title: 'Confirmation Dialog',
-        message: message,
-        cssClass: 'confirmation-dialog',
-        draggable: true,
-        buttons: [{
-            label: 'Yes',
-            icon: 'glyphicon glyphicon-send',
-            cssClass: 'btn-primary',
-            autospin: true,
-            action: function (dialog) {
-                runWaitMe('body','roundBounce', msgProcess);
-                $.ajax({
-                    url: url,
-                    type: "GET",
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        dialog.close();
-                        $('body').waitMe('hide');
-                        notificationMessage(errorThrown, 'error');
-                    },
-                    success: function (s) {
-                        dialog.close();
-                        $('body').waitMe('hide');
-                        $('#'+tableId).bootgrid('reload');
-                    },
-                    complete: function () {
-                        dialog.close();
-                    }
-                });
+    swal({
+        title: message,
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Hapus!'
+    }).then(function () {
+        runWaitMe('body','roundBounce',msgProcess);
+        $.ajax({
+            url:url,
+            method: "POST",
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $('body').waitMe('hide');
+                notificationMessage(errorThrown, 'error');
+                $('#'+tableId).bootgrid('reload');
+            },
+            success: function (s) {
+                $('body').waitMe('hide');
+                notificationMessage('berhasil','success');
+                $('#'+tableId).bootgrid('reload');
             }
-        }, {
-            label: 'Cancel',
-            action: function (dialog) {
-                dialog.close();
-            }
-        }]
-    });
+        })
+    })
+}
+
+function hanyaAngka(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+function setDataTabel() {
+
 }

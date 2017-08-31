@@ -108,5 +108,50 @@ class UserRepository implements IUserRepository
             ->update(['is_active' => '1']);
     }
 
+    public function updateDataUmumPerusahaan($perusahaanId, $param)
+    {
+        $perusahaan = User::find($perusahaanId);
+        $perusahaan->nama = $param['namPerusahaan'];
+        $perusahaan->alamat_perusahaan = $param['alamatPerusahaan'];
+        $perusahaan->no_telepon = $param['noTelepon'];
+        $perusahaan->kelurahan = $param['kelurahan'];
+        $perusahaan->kabupaten = $param['kabupaten'];
+        $perusahaan->kode_pos = $param['kodePos'];
+        $perusahaan->jenis_usaha_id = $param['jenisUsaha'];
+        $perusahaan->produk_akhir = $param['produkAkhir'];
+        $perusahaan->korwil = $param['korwilId'];
+
+        return $perusahaan->save();
+    }
+
+    public function updateDataLegalitasPerusahaan($perusahaanId, $param)
+    {
+        $perusahaan = User::find($perusahaanId);
+        $perusahaan->tanggal_pendirian = $param['tglPendirian'];
+        $perusahaan->nomor_akta_pendirian = $param['nomorAktaPendirian'];
+        if (isset($param['tglPerpindahanPerusahaan'])) {
+            $perusahaan->tgl_perpindahan_perusahaan = $param['tglPerpindahanPerusahaan'];
+        }
+        if(isset($input['alamatLama'])){
+            $perusahaan->alamat_lama = $param['alamatLama'];
+        }
+        $perusahaan->status_perusahaan = $param['statusPerusahaan'];
+        $perusahaan->jumlah_cabang_di_indonesia = $param['jumlahCabangIndonesia'];
+        $perusahaan->jumlah_cabang_luar_indonesia = $param['jumlahCabangLuarIndonesia'];
+        $perusahaan->status_pemilikan = $param['statusPemilikan'];
+        $perusahaan->status_permodalan = $param['statusPermodalan'];
+
+        return $perusahaan->save();
+    }
+
+    public function updateDataPengelolah($perusahaanId, $param)
+    {
+        $perusahaan = User::find($perusahaanId);
+        $perusahaan->nama_pengelolah = $param['namaPengelolah'];
+        $perusahaan->alamat_pengelolah = $param['alamatPengelolah'];
+
+        return $perusahaan->save();
+    }
+
 
 }

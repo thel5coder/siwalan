@@ -21,4 +21,10 @@ interface IUserRepository extends IBaseRepository
     public function changeActiveStatus($id,$status);
 
     public function userConfirmation($email,$token);
+
+    public function updateDataUmumPerusahaan($perusahaanId,$param);
+
+    public function updateDataLegalitasPerusahaan($perusahaanId,$param);
+
+    public function updateDataPengelolah($perusahaanId,$param);
 }

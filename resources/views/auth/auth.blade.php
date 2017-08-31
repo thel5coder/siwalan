@@ -3,27 +3,30 @@
 @stop
 @section('title','Login')
 @section('content')
-    <div class="page-content-inner" style="background-image: url({{asset('public/img/temp/login/2.jpg')}})">
+    <div class="page-content-inner" >
 
         <!-- Register Page -->
         <div class="single-page-block-header">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="logo">
-                        <a href="javascript: history.back();">
-                            <img src="{{url('public/img/logodepnaker.png')}}" alt="Clean UI Admin Template" />
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+
         </div>
         <div class="single-page-block">
             <div class="single-page-block-inner effect-3d-element">
                 <div class="blur-placeholder"><!-- --></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row text-center">
+                            <img src="{{url('public/img/logopemprovjatim.png')}}" width="200" height="300"/>
+                            <h3 style="color: blue;">Sistem Informasi Wajib Lapor</h3>
+                            <h4>Pemerintah Provinsi Jawa Timur</h4>
+
+                        </div>
+                    </div>
+                </div>
                 <div class="single-page-block-form">
-                    <h3 class="text-center">
+                    <h3 class="text-center" style="color: red;">
                         <i class="icmn-user-tie margin-right-10"></i>
-                        LOGIN
+                        Login
                     </h3>
                     <br />
                     <form id="formRegistration">

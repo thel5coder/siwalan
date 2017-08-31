@@ -27,15 +27,11 @@ class CreateUsersTable extends Migration
             $table->boolean('is_active');
             $table->string('jenis_usaha')->nullable();
             $table->string('produk_akhir')->nullable();
-            $table->string('nama_pemilik')->nullable();
-            $table->text('alamat_pemilik')->nullable();
-            $table->string('nama_pengelolah')->nullable();
-            $table->text('alamat_pengelolah')->nullable();
             $table->date('tanggal_pendirian')->nullable();
             $table->string('nomor_akta_pendirian')->nullable();
             $table->date('tgl_perpindahan_perusahaan')->nullable();
             $table->text('alamat_lama')->nullable();
-            $table->enum('status_perusahaan',['PUsat','Cabang'])->nullable();
+            $table->enum('status_perusahaan',['Pusat','Cabang'])->nullable();
             $table->integer('jumlah_cabang_di_indonesia')->nullable();
             $table->integer('jumlah_cabang_luar_indonesia')->nullable();
             $table->string('logo_perusahaan')->nullable();

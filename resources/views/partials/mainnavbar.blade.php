@@ -21,95 +21,9 @@
                     Perusahaan
                 </a>
             </li>
-            <li class="left-menu-list-submenu">
-                <a class="left-menu-link" href="javascript: void(0);">
-                    <i class="left-menu-link-icon fa fa-bar-chart"><!-- --></i>
-                    Keadaan Ketenaga Kerjaan
-                </a>
-                <ul class="left-menu-list list-unstyled">
-                    <li>
-                        <a class="left-menu-link" href="{{route('ketenagaKerjaanUmum')}}">
-                            Umum
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="#">
-                            Alat Perusahaan
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="{{route('ketenagaKerjaanWaktuKerja')}}">
-                            Waktu Kerja
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="{{route('ketenagaKerjaanPengupahan')}}">
-                            Pengupahan Kerja
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="#">
-                            Fasilitas Perusahaan
-                        </a>
-                    </li>
-                </ul>
-            </li>
+
             <li>
-                <a class="left-menu-link" href="components-mail-templates.html">
-                    <i class="left-menu-link-icon icmn-user-check"><!-- --></i>
-                    Jaminan Sosial
-                </a>
-            </li>
-            <li class="left-menu-list-submenu">
-                <a class="left-menu-link" href="javascript: void(0);">
-                    <i class="left-menu-link-icon fa fa-briefcase"><!-- --></i>
-                    Rencana Kerja
-                </a>
-                <ul class="left-menu-list list-unstyled">
-                    <li>
-                        <a class="left-menu-link" href="ecommerce-dashboard.html">
-                            Umum
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="ecommerce-products-catalog.html">
-                            Alat Perusahaan
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="ecommerce-product-details.html">
-                            Waktu Kerja
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="ecommerce-product-edit.html">
-                            Pengupahan Kerja
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="ecommerce-products-list.html">
-                            Fasilitas Perusahaan
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="ecommerce-products-list.html">
-                            Program Pelatihan
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="ecommerce-products-list.html">
-                            Rencana Kerja
-                        </a>
-                    </li>
-                    <li>
-                        <a class="left-menu-link" href="ecommerce-products-list.html">
-                            Rencana Pelatihan
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a class="left-menu-link" href="components-mail-templates.html">
+                <a class="left-menu-link" href="{{route('indexLapor')}}">
                     <i class="left-menu-link-icon icmn-checkmark"><!-- --></i>
                     Register Wajib Lapor
                 </a>
@@ -118,6 +32,12 @@
                 <a class="left-menu-link" href="{{route('cetakanLaporan',['id'=>8])}}">
                     <i class="left-menu-link-icon icmn-printer"><!-- --></i>
                     Cetak
+                </a>
+            </li>
+            <li>
+                <a class="left-menu-link" href="{{route('userLogout')}}">
+                    <i class="left-menu-link-icon icmn-printer"><!-- --></i>
+                    Log Out
                 </a>
             </li>
         </ul>

@@ -20,7 +20,7 @@ class AuthController extends Controller
     }
 
     public function authForm(){
-        return view('auth.auth');
+        return view('auth.content');
     }
 
     public function authProcess(){

@@ -9,17 +9,40 @@
     @include('partials.htmlheader')
     @include('partials.script')
 </head>
-<body class="theme-default menu-top">
-@include('partials.mainnavbar')
+<body>
+<!-- Main navbar -->
 @include('partials.topbar')
-<section class="page-content">
-    <div class="page-content-inner">
-        @yield('content')
-    </div>
-</section>
+<!-- /main navbar -->
 
-<div class="main-backdrop"><!-- --></div>
-@yield('customscript')
+
+<!-- Second navbar -->
+@include('partials.navbar')
+<!-- /second navbar -->
+
+<!-- Page header -->
+@yield('pageheader')
+<!-- /page header -->
+
+<!-- Page container -->
+<div class="page-container">
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            @yield('content')
+
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
+</div>
+<!-- /page container -->
+
 <script>
     $(function () {
         $.ajaxSetup({

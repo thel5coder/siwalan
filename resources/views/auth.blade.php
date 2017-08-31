@@ -9,13 +9,35 @@
     @include('partials.htmlheader')
     @include('partials.script')
 </head>
-<body class="theme-default">
+<body class="login-container login-cover" style="background: url('{{url("public/img/login_cover.jpg")}}') no-repeat;background-size: cover;">
+<!-- Page container -->
+<div class="page-container">
 
-<section class="page-content">
-    @yield('content')
-</section>
+    <!-- Page content -->
+    <div class="page-content">
 
-<div class="main-backdrop"><!-- --></div>
+        <!-- Main content -->
+        <div class="content-wrapper">
+
+            <!-- Tabbed form -->
+            @yield('content')
+            <!-- /tabbed form -->
+
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <!-- /page content -->
+
+</div>
+<!-- /page container -->
+
+
+<!-- Footer -->
+<div class="footer text-white text-center">
+    &copy; 2017. <a href="#" class="text-white">SIWALAN</a> by <a href="http://themeforest.net/user/Kopyov" class="text-white" target="_blank">Depnakertrans Provinsi Jatim</a>
+</div>
+<!-- /footer -->
 
 @yield('customscript')
 <script>

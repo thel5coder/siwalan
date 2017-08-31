@@ -38,7 +38,7 @@ class MasterWaktuKerjaRepository implements IMasterWaktuKerjaRepository
 
     public function showAll()
     {
-        return MasterWaktuKerjaModel::all();
+        return MasterWaktuKerjaModel::orderBy('id','asc')->get();
     }
 
     public function paginationData(PaginationParam $param)
