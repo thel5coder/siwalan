@@ -24,30 +24,40 @@
                         @if(count($perangkatHubunganKerja)>0)
                             <div class="row">
                                 <div class="form-group">
-                                    <label for="perangkatHubKerja" class="control-label col-md-3">Perangkat Hub Kerja</label>
+                                    <label for="perangkatHubKerja" class="control-label col-md-3">Perangkat Hub
+                                        Kerja</label>
                                     <div class="col-md-6">
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" id="pk" name="jenisHubungan" required @if($perangkatHubunganKerja->pk == 1){{'checked'}}@endif> PK
+                                            <input type="checkbox" id="pk" name="jenisHubungan"
+                                                   required @if($perangkatHubunganKerja->pk == 1){{'checked'}}@endif> PK
                                         </label>
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" id="pp" name="jenisHubungan" required @if($perangkatHubunganKerja->pp == 1){{'checked'}}@endif> PP
+                                            <input type="checkbox" id="pp" name="jenisHubungan"
+                                                   required @if($perangkatHubunganKerja->pp == 1){{'checked'}}@endif> PP
                                         </label>
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" id="kkb" name="jenisHubungan" required @if($perangkatHubunganKerja->kkb == 1){{'checked'}}@endif> KKB
+                                            <input type="checkbox" id="kkb" name="jenisHubungan"
+                                                   required @if($perangkatHubunganKerja->kkb == 1){{'checked'}}@endif>
+                                            KKB
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-group" id="tglPengesahanKkbPk" @if()>
-                                    <label for="tglPengesahan" class="control-label col-md-3">Tanggal Pengesahan PK/KKB</label>
+                                <div class="form-group" id="tglPengesahanKkbPk"
+                                     @if($perangkatHubunganKerja->pk == 1 || $perangkatHubunganKerja->kkb == 1) style="display: block"
+                                     @else style="display: none" @endif>
+                                    <label for="tglPengesahan" class="control-label col-md-3">Tanggal Pengesahan
+                                        PK/KKB</label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="tglPengesahan" id="tglPengesahan" value="{{date('d-m-Y',strtotime($perangkatHubunganKerja->tgl_pengesahan_pk_kkb))}}"/>
+                                        <input type="text" class="form-control" name="tglPengesahan" id="tglPengesahan"
+                                               value="{{date('d-m-Y',strtotime($perangkatHubunganKerja->tgl_pengesahan_pk_kkb))}}"/>
                                     </div>
                                 </div>
                             </div>
                         @else
                             <div class="row">
                                 <div class="form-group">
-                                    <label for="perangkatHubKerja" class="control-label col-md-3">Perangkat Hub Kerja</label>
+                                    <label for="perangkatHubKerja" class="control-label col-md-3">Perangkat Hub
+                                        Kerja</label>
                                     <div class="col-md-6">
                                         <label class="checkbox-inline">
                                             <input type="checkbox" id="pk" name="jenisHubungan" required> PK
@@ -61,9 +71,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group" id="tglPengesahanKkbPk">
-                                    <label for="tglPengesahan" class="control-label col-md-3">Tanggal Pengesahan PK/KKB</label>
+                                    <label for="tglPengesahan" class="control-label col-md-3">Tanggal Pengesahan
+                                        PK/KKB</label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="tglPengesahan" id="tglPengesahan"/>
+                                        <input type="text" class="form-control" name="tglPengesahan"
+                                               id="tglPengesahan"/>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +96,26 @@
             <form id="frmPerangkatOrginasiKetenagakerjaan" class="form-horizontal">
                 <div class="panel panel-default">
                     <div class="panel-body">
-
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Perangkat Organisasi Ketanagakerjaan</label>
+                            <div class="col-md-9">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" class="perangkatOrganisasi" value="Biparit"> Biparit
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" class="perangkatOrganisasi" value="SPTP"> SPTP
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" class="perangkatOrganisasi" value="Org.Pek"> Org.Pek
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" class="perangkatOrganisasi" value="P2K3"> P2K3
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" class="perangkatOrganisasi" value="Apindo"> Apindo
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-footer">
                         <div class="heading-elements">
