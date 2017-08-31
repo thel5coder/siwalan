@@ -23,6 +23,26 @@
                     <div class="panel-body">
                         @if(count($perangkatHubunganKerja)>0)
                             <div class="row">
+                                <div class="form-group">
+                                    <label for="perangkatHubKerja" class="control-label col-md-3">Perangkat Hub Kerja</label>
+                                    <div class="col-md-6">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" id="pk" name="jenisHubungan" required @if($perangkatHubunganKerja->pk == 1){{'checked'}}@endif> PK
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" id="pp" name="jenisHubungan" required @if($perangkatHubunganKerja->pp == 1){{'checked'}}@endif> PP
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" id="kkb" name="jenisHubungan" required @if($perangkatHubunganKerja->kkb == 1){{'checked'}}@endif> KKB
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="tglPengesahanKkbPk" @if()>
+                                    <label for="tglPengesahan" class="control-label col-md-3">Tanggal Pengesahan PK/KKB</label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="tglPengesahan" id="tglPengesahan" value="{{date('d-m-Y',strtotime($perangkatHubunganKerja->tgl_pengesahan_pk_kkb))}}"/>
+                                    </div>
+                                </div>
                             </div>
                         @else
                             <div class="row">

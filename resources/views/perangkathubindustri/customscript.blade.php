@@ -5,7 +5,6 @@
             format: 'dd-mm-yyyy'
         });
 
-        $('#tglPengesahanKkbPk').hide();
 
         $('#pk').change(function () {
             if($(this).prop('checked') || $('#kkb').prop('checked')){
@@ -113,9 +112,9 @@
                     success: function (s) {
                         if (s.isSuccess) {
                             notificationMessage('Berhasil', 'success');
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 3000);
+//                            setTimeout(function () {
+//                                window.location.reload();
+//                            }, 3000);
                         } else {
                             $('body').waitMe('hide');
                             var errorMessagesCount = s.message.length;

@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95bd14a0-2376-4d33-9a24-36ba47954956" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/perangkathubindustri/customscript.blade.php" afterPath="$PROJECT_DIR$/resources/views/perangkathubindustri/customscript.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/perangkathubindustri/tabkonten.blade.php" afterPath="$PROJECT_DIR$/resources/views/perangkathubindustri/tabkonten.blade.php" />
     </list>
     <ignored path="silawap.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +39,7 @@
       <file leaf-file-name="PerangkatHubunganKerjaRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Repository/Actions/PerangkatHubunganKerjaRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
+            <state relative-caret-position="539">
               <caret line="37" column="89" selection-start-line="37" selection-start-column="89" selection-end-line="37" selection-end-column="89" />
               <folding>
                 <element signature="e#128#171#0#PHP" expanded="true" />
@@ -69,23 +72,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tabkonten.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tabkonten.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/perangkathubindustri/tabkonten.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="38" column="105" selection-start-line="38" selection-start-column="105" selection-end-line="38" selection-end-column="105" />
+            <state relative-caret-position="412">
+              <caret line="39" column="84" selection-start-line="39" selection-start-column="84" selection-end-line="39" selection-end-column="84" />
               <folding>
-                <element signature="n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+                <marker date="1504201053667" expanded="false" signature="3038:4561" ph="..." />
+                <marker date="1504201053667" expanded="false" signature="5218:5753" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customscript.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="customscript.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/perangkathubindustri/customscript.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1092">
-              <caret line="20" column="64" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
+            <state relative-caret-position="108">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -107,7 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2017_08_31_063108_create_table_master_fasilitas_kesejahteraan.php" />
         <option value="$PROJECT_DIR$/database/migrations/2017_08_31_063717_create_table_fasilitas_kesejahteraan.php" />
         <option value="$PROJECT_DIR$/app/Models/MasterFasilitasK3Model.php" />
         <option value="$PROJECT_DIR$/app/Models/FasilitasK3Model.php" />
@@ -154,10 +157,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/PerangkatHubunganIndustrialController.php" />
         <option value="$PROJECT_DIR$/resources/views/perangkathubindustri/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Providers/RepositoryAppProvider.php" />
-        <option value="$PROJECT_DIR$/resources/views/perangkathubindustri/tabkonten.blade.php" />
         <option value="$PROJECT_DIR$/app/Repository/Actions/PerangkatHubunganKerjaRepository.php" />
         <option value="$PROJECT_DIR$/resources/views/lapor/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/perangkathubindustri/customscript.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/perangkathubindustri/tabkonten.blade.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -332,12 +336,12 @@
       <workItem from="1504004432178" duration="11859000" />
       <workItem from="1504053741031" duration="55015000" />
       <workItem from="1504156484673" duration="29625000" />
-      <workItem from="1504191720183" duration="8226000" />
+      <workItem from="1504191720183" duration="8728000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215209000" />
+    <option name="totallyTimeSpent" value="215711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -379,14 +383,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Repository/Actions/PenggunaanAlatBahanRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="119" column="8" selection-start-line="119" selection-start-column="8" selection-end-line="183" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repository/Contract/IFasilitasK3Repository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -755,32 +751,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/perangkathubindustri/tabkonten.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="105" selection-start-line="38" selection-start-column="105" selection-end-line="38" selection-end-column="105" />
-          <folding>
-            <element signature="n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PerangkatHubunganIndustrialController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="25" column="42" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="42" />
           <folding>
             <element signature="e#40#87#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repository/Actions/PerangkatHubunganKerjaRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="37" column="89" selection-start-line="37" selection-start-column="89" selection-end-line="37" selection-end-column="89" />
-          <folding>
-            <element signature="e#128#171#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -796,11 +772,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repository/Actions/PerangkatHubunganKerjaRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="37" column="89" selection-start-line="37" selection-start-column="89" selection-end-line="37" selection-end-column="89" />
+          <folding>
+            <element signature="e#128#171#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/perangkathubindustri/customscript.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1092">
-          <caret line="20" column="64" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
+        <state relative-caret-position="108">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/perangkathubindustri/tabkonten.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="39" column="84" selection-start-line="39" selection-start-column="84" selection-end-line="39" selection-end-column="84" />
+          <folding>
+            <marker date="1504201053667" expanded="false" signature="3038:4561" ph="..." />
+            <marker date="1504201053667" expanded="false" signature="5218:5753" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
