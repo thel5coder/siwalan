@@ -10,6 +10,7 @@ namespace App\Services;
 
 
 use App\Repository\Contract\IKepemilikanRepository;
+use App\Services\Response\ServicePaginationResponseDto;
 use App\Services\Response\ServiceResponseDto;
 
 class KepemilikanService extends BaseService
@@ -55,8 +56,16 @@ class KepemilikanService extends BaseService
         return $this->deleteObject($this->kepemilikanRepository,$id);
     }
 
-    public function pagination($param){
-        return $this->getPaginationObject($this->kepemilikanRepository,$param);
+    public function pagination($param,$perusahaanId){
+        $response = new ServicePaginationResponseDto();
+
+        $pagingResult = $this->kepemilikanRepository->paginationByPerusahaan($this->parsePaginationParam($param),$perusahaanId);
+        $response->setCurrentPage($param['pageIndex']);
+        $response->setPageSize($param['pageSize']);
+        $response->setTotalCount($pagingResult->getTotalCount());
+        $response->setResult($pagingResult->getResult());
+
+        return $response;
     }
 
 }

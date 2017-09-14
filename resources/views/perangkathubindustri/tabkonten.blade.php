@@ -96,26 +96,80 @@
             <form id="frmPerangkatOrginasiKetenagakerjaan" class="form-horizontal">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Perangkat Organisasi Ketanagakerjaan</label>
-                            <div class="col-md-9">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="perangkatOrganisasi" value="Biparit"> Biparit
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="perangkatOrganisasi" value="SPTP"> SPTP
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="perangkatOrganisasi" value="Org.Pek"> Org.Pek
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="perangkatOrganisasi" value="P2K3"> P2K3
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="perangkatOrganisasi" value="Apindo"> Apindo
-                                </label>
+                        @if(count($perangkatOrganisasi)>0)
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Perangkat Organisasi Ketanagakerjaan</label>
+                                <div class="col-md-9">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="Bipartit"
+                                        @foreach($perangkatOrganisasi as $organisasi)
+                                            @if($organisasi->jenis_perangkat_organisasi =='Bipartit')
+                                                {{'checked'}}
+                                                    @endif
+                                                @endforeach
+                                        > Bipartit
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="SPTP"
+                                        @foreach($perangkatOrganisasi as $organisasi)
+                                            @if($organisasi->jenis_perangkat_organisasi =='SPTP')
+                                                {{'checked'}}
+                                                    @endif
+                                                @endforeach
+                                        > SPTP
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="Org.Pek"
+                                        @foreach($perangkatOrganisasi as $organisasi)
+                                            @if($organisasi->jenis_perangkat_organisasi =='Org.Pek')
+                                                {{'checked'}}
+                                                    @endif
+                                                @endforeach
+                                        > Org.Pek
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="P2K3"
+                                        @foreach($perangkatOrganisasi as $organisasi)
+                                            @if($organisasi->jenis_perangkat_organisasi =='P2K3')
+                                                {{'checked'}}
+                                                    @endif
+                                                @endforeach
+                                        > P2K3
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="Apindo"
+                                        @foreach($perangkatOrganisasi as $organisasi)
+                                            @if($organisasi->jenis_perangkat_organisasi =='Apindo')
+                                                {{'checked'}}
+                                                    @endif
+                                                @endforeach
+                                        > Apindo
+                                    </label>
+                                </div>
                             </div>
-                        </div>
+                        @else
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Perangkat Organisasi Ketanagakerjaan</label>
+                                <div class="col-md-9">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="Bipartit"> Bipartit
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="SPTP"> SPTP
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="Org.Pek"> Org.Pek
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="P2K3"> P2K3
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="perangkatOrganisasi" value="Apindo"> Apindo
+                                    </label>
+                                </div>
+                            </div>
+                        @endif
+
                     </div>
                     <div class="panel-footer">
                         <div class="heading-elements">

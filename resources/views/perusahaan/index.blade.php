@@ -154,7 +154,7 @@
                                                        data-toggle="tab"
                                                        data-target="#pengolah" role="tab">
                                                         <i class="icmn-user-tie"></i>
-                                                        Pengelolah
+                                                        Pengurus
                                                     </a>
                                                 </li>
                                             </ul>
@@ -201,13 +201,13 @@
                                                 <div class="tab-pane" id="pengolah" role="tabpanel">
                                                     <form id="formPengelolah">
                                                         <div class="form-group">
-                                                            <label for="namaPengelolah">Nama Pengelolah</label>
+                                                            <label for="namaPengelolah">Nama Pengurus</label>
                                                             <input type="text" id="namaPengelolah"
                                                                    name="namaPengelolah" class="form-control" required
                                                                    value="{{auth()->user()->nama_pengelolah}}"/>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="alamatPengelolah">Alamat Pengelolah</label>
+                                                            <label for="alamatPengelolah">Alamat Pengurus</label>
                                                             <textarea class="form-control" id="alamatPengelolah"
                                                                       name="alamatPengelolah"
                                                                       required>{{auth()->user()->alamat_pengelolah}}</textarea>
@@ -231,7 +231,7 @@
                                         <input type="text" class="form-control tglDatePicker" id="tglPendirian"
                                                name="tglPendirian"
                                                placeholder="Tanggal Pendirian Perusahaan"
-                                               value="{{auth()->user()->tanggal_pendirian}}"
+                                               value="{{date('d-m-Y',strtotime(auth()->user()->tanggal_pendirian))}}"
                                                required>
                                     </div>
                                     <div class="form-group">
@@ -242,19 +242,19 @@
                                                value="{{auth()->user()->nomor_akta_pendirian}}"
                                                required>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group pindah">
                                         <label for="tglPerpindahanPerusahaan">Tanggal Perpindahan Perusahaan</label>
                                         <input type="text" class="form-control tglDatePicker"
                                                id="tglPerpindahanPerusahaan" name="tglPerpindahanPerusahaan"
                                                placeholder="Tanggal Perpindahan Perusahaan"
-                                               value="{{auth()->user()->tgl_perpindahan_perusahaan}}"
-                                               required>
+                                               value="{{date('d-m-Y',strtotime(auth()->user()->tgl_perpindahan_perusahaan))}}"
+                                               >
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group pindah">
                                         <label for="alamatLama">Alamat Lama</label>
                                         <textarea type="text" class="form-control" id="alamatLama" name="alamatLama"
                                                   placeholder="Alamat lama"
-                                                  required>{{auth()->user()->alamat_lama}}</textarea>
+                                                  >{{auth()->user()->alamat_lama}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="statusPerusahaan">Status Perusahaan</label>
@@ -803,7 +803,8 @@
                 ajax: true,
                 post: function () {
                     return {
-                        _token: "{{csrf_token()}}"
+                        _token: "{{csrf_token()}}",
+                        perusahaanId:"{{auth()->user()->id}}"
                     };
                 },
                 url: "{{route('paginationKepemilikan')}}",

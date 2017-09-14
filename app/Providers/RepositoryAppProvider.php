@@ -36,6 +36,15 @@ class RepositoryAppProvider extends ServiceProvider
         $this->app->bind('App\\Repository\\Contract\\IBpjsKesehatanRepository', 'App\\Repository\\Actions\BpjsKesehatanRepository');
         $this->app->bind('App\\Repository\\Contract\\IProgramPensiunRepository', 'App\\Repository\\Actions\ProgramPensiunRepository');
         $this->app->bind('App\\Repository\\Contract\\IPerangkatHubunganKerjaRepository', 'App\\Repository\\Actions\PerangkatHubunganKerjaRepository');
+        $this->app->bind('App\\Repository\\Contract\\IPerangkatOrganisasiRepository', 'App\\Repository\\Actions\PerangkatOrganisasiRepository');
+        $this->app->bind('App\\Repository\\Contract\\ICtkiAkanBerangkatRepository', 'App\\Repository\\Actions\CtkiAkanBerangkatRepository');
+        $this->app->bind('App\\Repository\\Contract\\IDetailCtkiAkanBerangkatRepository', 'App\\Repository\\Actions\DetailCtkiAkanBerangkatRepository');
+        $this->app->bind('App\\Repository\\Contract\\ICtkiTelahBerangkatRepository', 'App\\Repository\\Actions\CtkiTelahBerangkatRepository');
+        $this->app->bind('App\\Repository\\Contract\\IDetailCtkiTelahBerangkatRepository', 'App\\Repository\\Actions\DetailCtkiTelahBerangkatRepository');
+        $this->app->bind('App\\Repository\\Contract\\IRekapPenerimaanPekerjaRepository', 'App\\Repository\\Actions\RekapPenerimaanPekerjaRepository');
+        $this->app->bind('App\\Repository\\Contract\\IProgramPelatihanRepository', 'App\\Repository\\Actions\ProgramPelatihanRepository');
+        $this->app->bind('App\\Repository\\Contract\\IRencanaPelatihanRepository', 'App\\Repository\\Actions\RencanaPelatihanRepository');
+        $this->app->bind('App\\Repository\\Contract\\IUbahEmailRepository', 'App\\Repository\\Actions\UbahEmailRepository');
     }
 
     /**

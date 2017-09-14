@@ -19,6 +19,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\NewUserRegister' => [
             'App\Listeners\NewRegisteredUser',
         ],
+        'App\Events\UserDinasCreated' => [
+            'App\Listeners\NewUserDinasCreated',
+        ],
+        'App\Events\RequestChangeEmail' => [
+            'App\Listeners\NewRequestChangeEmail',
+        ],
     ];
 
     /**

@@ -20,7 +20,7 @@ class KepemilikanController extends Controller
 
     public function pagination(){
         $param = $this->getPaginationParams();
-        $response = $this->kepemilikanService->pagination($param);
+        $response = $this->kepemilikanService->pagination($param,Input::get('perusahaanId'));
 
         return $this->parsePaginationResultToGridJson($response);
     }

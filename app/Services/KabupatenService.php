@@ -24,6 +24,10 @@ class KabupatenService extends BaseService
         return $this->readObject($this->kabupatenRepository,$id);
     }
 
+    public function pagination($param){
+        return $this->getPaginationObject($this->kabupatenRepository,$param);
+    }
+
 
 
 }

@@ -50,7 +50,7 @@ class FasilitasPerusahaanService extends BaseService
     {
         $response = new ServiceResponseDto();
 
-        $response->getResult($this->fasilitasK3Repository->readByLapor($laporId));
+        $response->setResult($this->fasilitasK3Repository->readByLapor($laporId));
 
         return $response;
     }

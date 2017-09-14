@@ -15,9 +15,9 @@ interface IPenggunaanAlatBahanRepository extends IBaseRepository
 {
     public function readByLapor($laporId);
 
-    public function readByAlatId($alatId);
+    public function readByAlatId($laporId,$alatId);
 
-    public function checkIsExist($alatId);
+    public function checkIsExist($laporId,$alatId);
 
     public function paginationByLapor(PaginationParam $param,$laporId);
 }

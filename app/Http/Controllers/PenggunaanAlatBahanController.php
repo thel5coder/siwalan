@@ -53,8 +53,8 @@ class PenggunaanAlatBahanController extends Controller
         return $this->getJsonResponse($response);
     }
 
-    public function readByAlat($id){
-        $response = $this->penggunaanAlatBahanService->readByAlatId($id)->getResult();
+    public function readByAlat($laporId,$id){
+        $response = $this->penggunaanAlatBahanService->readByAlatId($laporId,$id)->getResult();
 
         return response()->json(['count'=>count($response),'data'=>$response]);
     }

@@ -9,7 +9,10 @@
 namespace App\Repository\Contract;
 
 
+use App\Repository\Contract\Pagination\PaginationParam;
+
 interface IKecamatanRepository extends IBaseRepository
 {
+    public function paginationByKabupaten(PaginationParam $param,$kabupatenId);
 
 }

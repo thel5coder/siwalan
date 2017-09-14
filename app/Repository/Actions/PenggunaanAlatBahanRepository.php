@@ -190,14 +190,14 @@ class PenggunaanAlatBahanRepository implements IPenggunaanAlatBahanRepository
         return PenggunaanAlatBahanModel::where('lapor_id', '=', $laporId)->get();
     }
 
-    public function readByAlatId($alatId)
+    public function readByAlatId($laporId,$alatId)
     {
-        return PenggunaanAlatBahanModel::where('alat_id', '=', $alatId)->first();
+        return PenggunaanAlatBahanModel::where('alat_id', '=', $alatId)->where('lapor_id','=',$laporId)->first();
     }
 
-    public function checkIsExist($alatId)
+    public function checkIsExist($laporId,$alatId)
     {
-        $result = PenggunaanAlatBahanModel::where('alat_id','=',$alatId)->count();
+        $result = PenggunaanAlatBahanModel::where('alat_id','=',$alatId)->where('lapor_id','=',$laporId)->count();
 
         return ($result>0);
     }

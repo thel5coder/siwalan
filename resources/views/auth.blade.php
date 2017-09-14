@@ -35,7 +35,7 @@
 
 <!-- Footer -->
 <div class="footer text-white text-center">
-    &copy; 2017. <a href="#" class="text-white">SIWALAN</a> by <a href="http://themeforest.net/user/Kopyov" class="text-white" target="_blank">Depnakertrans Provinsi Jatim</a>
+    &copy; 2017 All rights reserved Dinas Ketenagakerjaan dan Transmigrasi Provinsi Jawa Timur
 </div>
 <!-- /footer -->
 

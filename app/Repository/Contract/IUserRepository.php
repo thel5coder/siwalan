@@ -27,4 +27,24 @@ interface IUserRepository extends IBaseRepository
     public function updateDataLegalitasPerusahaan($perusahaanId,$param);
 
     public function updateDataPengelolah($perusahaanId,$param);
+
+    public function getCountRegisterUserPerDay();
+
+    public function getCountRegisterUserPerMont();
+
+    public function paginationUserByUserLevel(PaginationParam $param,$userLevel);
+
+    public function paginationPerusahaanByKorwil(PaginationParam $param,$korwil);
+
+    public function createUserDinas($input);
+
+    public function changePassword($id,$password);
+
+    public function updateUserDinas($input);
+
+    public function paginationByKabupaten(PaginationParam $param,$kabupaten);
+
+    public function paginationByKecamatan(PaginationParam $param,$kecamatan);
+
+    public function changeEmail($id,$email);
 }

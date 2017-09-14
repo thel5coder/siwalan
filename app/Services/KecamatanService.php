@@ -10,6 +10,7 @@ namespace App\Services;
 
 
 use App\Repository\Contract\IKecamatanRepository;
+use App\Services\Response\ServicePaginationResponseDto;
 use App\Services\Response\ServiceResponseDto;
 
 class KecamatanService extends BaseService
@@ -37,4 +38,15 @@ class KecamatanService extends BaseService
         return $response;
     }
 
+    public function pagination($param,$kabupatenId){
+        $response = new ServicePaginationResponseDto();
+
+        $pagingResult = $this->kecamatanRepository->paginationByKabupaten($this->parsePaginationParam($param),$kabupatenId);
+        $response->setCurrentPage($param['pageIndex']);
+        $response->setPageSize($param['pageSize']);
+        $response->setTotalCount($pagingResult->getTotalCount());
+        $response->setResult($pagingResult->getResult());
+
+        return $response;
+    }
 }

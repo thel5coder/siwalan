@@ -211,7 +211,7 @@
         }
 
         function readByAlatId(alatId) {
-            url = "{{url('penggunaan-alat-bahan-read-alat')}}/"+alatId;
+            url = "{{url('penggunaan-alat-bahan-read-alat')}}/"+$('#laporId').val()+"/"+alatId;
             $.ajax({
                 url:url,
                 method:"GET",

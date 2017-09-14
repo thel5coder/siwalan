@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Response\ServiceResponseDto;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 
@@ -17,10 +18,6 @@ class AuthController extends Controller
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
-    }
-
-    public function authForm(){
-        return view('auth.content');
     }
 
     public function authProcess(){
@@ -53,6 +50,30 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->guest('user/auth');
+        return redirect()->guest('/');
+    }
+
+    public function changePassword(){
+        $response = $this->userService->changePassword(Input::get('id'),Input::get('password'));
+
+        return $this->getJsonResponse($response);
+    }
+
+    public function lupaPassword(){
+        $response = $this->userService->lupaPassword(Input::get('email'));
+
+        return $this->getJsonResponse($response);
+    }
+
+    public function formResetPassword($email){
+        $decodeEmail = base64_decode($email);
+
+        return view('resetpassword')->with('email');
+    }
+
+    public function postResetPassword(){
+        $response = $this->userService->changePassword(Input::get('email'),Input::get('password'));
+
+        return $this->getJsonResponse($response);
     }
 }

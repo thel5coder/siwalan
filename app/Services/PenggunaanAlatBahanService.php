@@ -25,7 +25,7 @@ class PenggunaanAlatBahanService extends BaseService
     public function create($input)
     {
         $response = new ServiceResponseDto();
-        $isAlatExist = $this->isAlatExist($input['alatId'])->getResult();
+        $isAlatExist = $this->isAlatExist($input['laporId'],$input['alatId'])->getResult();
 
         if ($isAlatExist) {
             if (!$this->penggunaanAlatBahanRepository->update($input)) {
@@ -42,11 +42,11 @@ class PenggunaanAlatBahanService extends BaseService
         return $response;
     }
 
-    protected function isAlatExist($alatId)
+    protected function isAlatExist($laporId,$alatId)
     {
         $response = new ServiceResponseDto();
 
-        $response->setResult($this->penggunaanAlatBahanRepository->checkIsExist($alatId));
+        $response->setResult($this->penggunaanAlatBahanRepository->checkIsExist($laporId,$alatId));
 
         return $response;
     }
@@ -65,11 +65,11 @@ class PenggunaanAlatBahanService extends BaseService
         return $response;
     }
 
-    public function readByAlatId($alatId)
+    public function readByAlatId($laporId,$alatId)
     {
         $response = new ServiceResponseDto();
 
-        $response->setResult($this->penggunaanAlatBahanRepository->readByAlatId($alatId));
+        $response->setResult($this->penggunaanAlatBahanRepository->readByAlatId($laporId,$alatId));
 
         return $response;
     }

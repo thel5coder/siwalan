@@ -42,12 +42,19 @@ function popUpConfirmation(url,tableId,message,msgProcess) {
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 $('body').waitMe('hide');
                 notificationMessage(errorThrown, 'error');
-                $('#'+tableId).bootgrid('reload');
+                if(tableId !=''){
+                    $('#'+tableId).bootgrid('reload');
+                }
             },
             success: function (s) {
                 $('body').waitMe('hide');
                 notificationMessage('berhasil','success');
-                $('#'+tableId).bootgrid('reload');
+                if(tableId ==''){
+                    location.reload();
+                }else{
+                    $('#'+tableId).bootgrid('reload');
+                }
+
             }
         })
     })

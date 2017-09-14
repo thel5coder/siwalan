@@ -9,7 +9,9 @@
 namespace App\Repository\Contract;
 
 
+use App\Repository\Contract\Pagination\PaginationParam;
+
 interface IKepemilikanRepository extends IBaseRepository
 {
-
+    public function paginationByPerusahaan(PaginationParam $param,$perusahaanId);
 }

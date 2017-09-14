@@ -20292,6 +20292,9 @@ label.display-block {
   .width-650 {
     min-width: 650px;
   }
+  .width-1024{
+    min-width: 1024px;
+  }
 }
 .img-lg {
   width: 44px!important;

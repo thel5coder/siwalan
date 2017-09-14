@@ -11,5 +11,5 @@ namespace App\Repository\Contract;
 
 interface IGroupKorwilRepository extends IBaseRepository
 {
-
+    public function readMasterKorwil($id);
 }

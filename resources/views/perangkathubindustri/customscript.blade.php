@@ -1,35 +1,47 @@
 <script>
-    var pk,pp,kkb;
+    var pk, pp, kkb;
+    var jenisPerangkatOrganisasi = [];
     $(document).ready(function () {
         $('#tglPengesahan').datepicker({
             format: 'dd-mm-yyyy'
         });
 
+        $('.perangkatOrganisasi').change(function () {
+            jenisPerangkatOrganisasi = [];
+            $('.perangkatOrganisasi').each(function () {
+                if ($(this).prop('checked')) {
+                    jenisPerangkatOrganisasi.push($(this).val());
+                }
+            });
+
+            console.log(jenisPerangkatOrganisasi);
+        });
+
 
         $('#pk').change(function () {
-            if($(this).prop('checked') || $('#kkb').prop('checked')){
+            if ($(this).prop('checked') || $('#kkb').prop('checked')) {
                 $('#tglPengesahanKkbPk').show();
-                pk =1;
-            }else{
+                pk = 1;
+            } else {
                 $('#tglPengesahanKkbPk').hide();
-                pk=0;
+                pk = 0;
             }
         });
 
         $('#kkb').change(function () {
-            if($(this).prop('checked') || $('#pk').prop('checked')){
+            if ($(this).prop('checked') || $('#pk').prop('checked')) {
                 $('#tglPengesahanKkbPk').show();
                 kkb = 1;
-            }else{
+            } else {
                 $('#tglPengesahanKkbPk').hide();
                 kkb = 0;
             }
         });
 
         $('#pp').change(function () {
-            if($(this).prop('checked')){
+            if ($(this).prop('checked')) {
                 pp = 1;
-            }else{
+            } else {
                 pp = 0;
             }
         });
@@ -77,21 +89,21 @@
 
             submitHandler: function (form) {
                 runWaitMe('body', 'roundBounce', 'Menyimpan...');
-                if($('pk').prop('checked')){
+                if ($('pk').prop('checked')) {
                     pk = 1;
-                }else{
+                } else {
                     pk = 0;
                 }
 
-                if($('#pp').prop('checked')){
+                if ($('#pp').prop('checked')) {
                     pp = 1;
-                }else{
-                    pp= 0;
+                } else {
+                    pp = 0;
                 }
 
-                if($('#kkb').prop('checked')){
+                if ($('#kkb').prop('checked')) {
                     kkb = 1;
-                }else{
+                } else {
                     kkb = 0;
                 }
 
@@ -100,10 +112,10 @@
                     method: "POST",
                     data: {
                         laporId: $('#laporId').val(),
-                        pk:pk,
-                        pp:pp,
-                        kkb:kkb,
-                        tglPengesahan:$('#tglPengesahan').val()
+                        pk: pk,
+                        pp: pp,
+                        kkb: kkb,
+                        tglPengesahan: $('#tglPengesahan').val()
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrow) {
                         $('body').waitMe('hide');
@@ -126,5 +138,43 @@
                 })
             }
         });
+
+        $('#frmPerangkatOrginasiKetenagakerjaan').submit(function (e) {
+            e.preventDefault();
+            runWaitMe('body','roundBounce','Menyimpan...');
+
+            if(jenisPerangkatOrganisasi.length == 0){
+                $('body').waitMe('hide');
+                notificationMessage('Pilih dahulu perangkat organisasi','error');
+                return false;
+            }else{
+                $.ajax({
+                    url:"{{route('postPerangkatOrganisasiKetenagakerjaan')}}",
+                    method:"POST",
+                    data:{
+                        laporId:$('#laporId').val(),
+                        jenisPerangkatOrganisasi:jenisPerangkatOrganisasi
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrow) {
+                        $('body').waitMe('hide');
+                        notificationMessage(errorThrow, 'error');
+                    },
+                    success: function (s) {
+                        if (s.isSuccess) {
+                            notificationMessage('Berhasil', 'success');
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 3000);
+                        } else {
+                            $('body').waitMe('hide');
+                            var errorMessagesCount = s.message.length;
+                            for (var i = 0; i < errorMessagesCount; i++) {
+                                notificationMessage(s.message[i], 'error');
+                            }
+                        }
+                    }
+                });
+            }
+        })
     })
 </script>

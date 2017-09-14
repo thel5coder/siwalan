@@ -1,6 +1,10 @@
 <script>
     $(document).ready(function () {
-        $('.tglMenjadiPeserta').datepicker({
+        $('#tglMenjadiPeserta').datepicker({
+            format: 'dd-mm-yyyy'
+        });
+
+        $('#tglMenjadiPesertaKesehatan').datepicker({
             format: 'dd-mm-yyyy'
         });
 
